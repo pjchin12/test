@@ -1,0 +1,188 @@
+import openpyxl
+wb = openpyxl.load_workbook('/Users/paulchin/Desktop/2016_part_2.xlsx')
+sheet2 = wb.get_sheet_by_name('trial')
+wb = openpyxl.load_workbook('/Users/paulchin/Desktop/MMS_Data_Cousings_2016.xlsx')
+sheet = wb.get_sheet_by_name('Sheet1new')
+
+
+
+bnfive = 0
+
+bnfour = 0
+
+bnthree = 0
+
+bntwo = 0
+
+bnone = 0
+
+bnzero = 0
+
+bzero = 0
+
+bone = 0
+
+btwo = 0
+
+bthree = 0
+
+bfour = 0
+
+enfive = 0
+enfour = 0
+enthree = 0
+enone = 0
+enzero = 0
+ezero = 0
+eone = 0
+etwo = 0
+ethree = 0
+efour = 0
+entwo = 0
+
+
+
+for j in range (95,193):
+    print j,
+    hour = sheet.cell(row=j, column=2).value
+    hour = str (hour)
+    hour = ''.join(hour).encode('ascii', 'ignore')
+    if hour != "No Data":
+        daynumb = sheet.cell(row=j, column=1).value
+        daynumb = str(daynumb)
+        daynumb = ''.join(daynumb).encode('ascii', 'ignore')
+        hour = sheet.cell(row=j, column=2).value
+        hour = str(hour)
+        hour = ''.join(hour).encode('ascii', 'ignore')
+        nstr = hour[0:2]   
+        if nstr[0] == '0':
+            rhour = nstr.replace(":" and "0", "")
+        else:
+            rhour = nstr.replace(":", "")
+
+        minute = str(int(round(int(hour[-5:-3])/5.0)*5.0)) 
+        
+        
+        for i in range (1,34826):
+            a = sheet2.cell(row=i, column=2).value
+            b = sheet2.cell(row=i, column=3).value
+            c = sheet2.cell(row=i, column=4).value
+            d = sheet2.cell(row=i, column=5).value
+            e = sheet2.cell(row=i, column=6).value
+            a = str (a)    
+            b = str (b)
+            c = str (c)
+            d = str (d)
+            e = str (e)
+            dn = ''.join(a).encode('ascii', 'ignore')
+            h = ''.join(b).encode('ascii', 'ignore')
+            m = ''.join(c).encode('ascii', 'ignore')
+            bz = ''.join(d).encode('ascii', 'ignore')
+            ey = ''.join(e).encode('ascii', 'ignore')
+            
+            if daynumb == dn and rhour == h and minute == m:  
+                if -5.5 <= float(bz) < -4.5:
+                    bnfive += 1
+                elif -4.5 <= float(bz) < -3.5:
+                    bnfour += 1
+                elif -3.5 <= float(bz) < -2.5:
+                    bnthree += 1
+                elif -2.5 <= float(bz) < -1.5:
+                    bntwo += 1
+                elif -1.5 <= float(bz) < -0.5:
+                    bnone += 1
+                elif -0.5 <= float(bz) < 0.5:
+                    bnzero +=1
+                elif 0.5 <= float(bz) < 1.5:
+                    bzero += 1
+                elif 1.5 <= float(bz) < 2.5:
+                    bone +=1
+                elif 2.5 <= float(bz) < 3.5:
+                    btwo +=1
+                elif 3.5 <= float(bz) < 4.5:
+                    bthree +=1
+                elif 4.5 <= float(bz) < 5.5:
+                    bfour +=1
+     
+    else:
+        print " NO HOUR DATA",
+ 
+print bnzero
+ 
+for j in range (95,193):
+    print j,
+    hour = sheet.cell(row=j, column=4).value
+    hour = str (hour)
+    hour = ''.join(hour).encode('ascii', 'ignore')
+    if hour != "No Data":
+        daynumb = sheet.cell(row=j, column=1).value
+        daynumb = str(daynumb)
+        daynumb = ''.join(daynumb).encode('ascii', 'ignore')
+        hour = sheet.cell(row=j, column=4).value
+        hour = str(hour)
+        hour = ''.join(hour).encode('ascii', 'ignore')
+        nstr = hour[0:2]   
+        if nstr[0] == '0':
+            rhour = nstr.replace(":" and "0", "")
+        else:
+            rhour = nstr.replace(":", "")
+
+        minute = str(int(round(int(hour[-5:-3])/5.0)*5.0)) 
+        
+        
+        for i in range (1,34826):
+            a = sheet2.cell(row=i, column=2).value
+            b = sheet2.cell(row=i, column=3).value
+            c = sheet2.cell(row=i, column=4).value
+            d = sheet2.cell(row=i, column=5).value
+            e = sheet2.cell(row=i, column=6).value
+            a = str (a)    
+            b = str (b)
+            c = str (c)
+            d = str (d)
+            e = str (e)
+            dn = ''.join(a).encode('ascii', 'ignore')
+            h = ''.join(b).encode('ascii', 'ignore')
+            m = ''.join(c).encode('ascii', 'ignore')
+            bz = ''.join(d).encode('ascii', 'ignore')
+            ey = ''.join(e).encode('ascii', 'ignore')
+            
+            if daynumb == dn and rhour == h and minute == m:  
+                if -5.5 <= float(bz) < -4.5:
+                    bnfive += 1
+                elif -4.5 <= float(bz) < -3.5:
+                    bnfour += 1
+                elif -3.5 <= float(bz) < -2.5:
+                    bnthree += 1
+                elif -2.5 <= float(bz) < -1.5:
+                    bntwo += 1
+                elif -1.5 <= float(bz) < -0.5:
+                    bnone += 1
+                elif -0.5 <= float(bz) < 0.5:
+                    bnzero +=1
+                elif 0.5 <= float(bz) < 1.5:
+                    bzero += 1
+                elif 1.5 <= float(bz) < 2.5:
+                    bone +=1
+                elif 2.5 <= float(bz) < 3.5:
+                    btwo +=1
+                elif 3.5 <= float(bz) < 4.5:
+                    bthree +=1
+                elif 4.5 <= float(bz) < 5.5:
+                    bfour +=1   
+     
+     
+import matplotlib.pyplot as plt; plt.rcdefaults()
+import numpy as np
+import matplotlib.pyplot as plt
+ 
+objects = ('-5.5<=x<-4.5', '-4.5<=x<-3.5', '-3.5<=x<-2.5', '-2.5<=x<-1.5', '-1.5<=x<-0.5', '-0.5<=x<0.5', '0.5<=x<1.5', '1.5<=x<2.5', '2.5<=x<3.5', '3.5<=x<4.5', '4.5<=x<5.5')
+y_pos = np.arange(len(objects))
+performance = [bnfive,bnfour,bnthree,bntwo,bnone,bnzero,bzero,bone,btwo,bthree,bfour]
+ 
+plt.bar(y_pos, performance, align='center', alpha=.5)
+plt.xticks(y_pos, objects)
+plt.ylabel('Occurences')
+plt.title('ey Data 2016')
+ 
+plt.show()  
